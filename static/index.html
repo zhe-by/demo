@@ -5,6 +5,16 @@
     <title>Демо же</title>
 </head>
 <body>
-
+<div id="application"></div>
+<script src="bower_components/q/q.js"></script>
+<script src="bower_components/react/react-with-addons.js"></script>
+<script>
+    window.h = React.createElement;
+    window.cx = React.addons.classSet;
+</script>
+<script src="bower_components/react-router/dist/react-router.js"></script>
+<script src="bower_components/reflux/dist/reflux.js"></script>
+<script src="bower_components/superagent/superagent.js"></script>
+<script src="bower_components/requirejs/require.js" data-main="app/main"></script>
 </body>
 </html>

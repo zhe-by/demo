@@ -1,0 +1,14 @@
+{
+    "extends": "../.jshintrc",
+    "globals": {
+        "define": true,
+        "React": true,
+        "Q": true,
+        "ReactRouter": true,
+        "Reflux": true,
+        "superagent": true,
+        "h": true,
+        "cx": true
+    },
+    "browser": true
+}
