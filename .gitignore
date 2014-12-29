@@ -1,0 +1,7 @@
+*.TODO
+*.pseudo
+
+node_modules
+bower_components
+
+build

@@ -1,0 +1,20 @@
+{
+    "bitwise": true,
+    "camelcase": true,
+    "curly": true,
+    "freeze": true,
+    "immed": true,
+    "latedef": "nofunc",
+    "newcap": false,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": "vars",
+    "strict": true,
+    "maxlen": 80,
+    "eqnull": true,
+    "scripturl": true,
+    "devel": true
+}
