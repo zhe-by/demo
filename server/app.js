@@ -6,7 +6,7 @@ var app = express();
 
 app.use(require('./config/nocache'));
 
-app.use(express.static(path.join(__dirname, '../static')));
+app.use(express.static(path.join(__dirname, '../frontend/static')));
 
 app.use(function (err, req, res, next) {
     console.error(err);

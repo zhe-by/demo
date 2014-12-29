@@ -1,0 +1,15 @@
+{
+  "name": "frontend-build-zhe",
+  "description": "Gulp build for frontend of zhe.by",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhe-by/demo.git"
+  },
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.10"
+  }
+}
