@@ -7,6 +7,7 @@
     "react-router": "~0.11.6",
     "superagent": "~0.21.0",
     "q": "1",
-    "fontawesome": "~4.2.0"
+    "fontawesome": "~4.2.0",
+    "JSnoX": "af/JSnoX#~0.9.0"
   }
 }

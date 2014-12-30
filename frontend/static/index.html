@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Демо же</title>
-</head>
-<body>
-<div id="application"></div>
-<script src="bower_components/q/q.js"></script>
-<script src="bower_components/react/react-with-addons.js"></script>
-<script>
-    window.h = React.createElement;
-    window.cx = React.addons.classSet;
-</script>
-<script src="bower_components/react-router/dist/react-router.js"></script>
-<script src="bower_components/reflux/dist/reflux.js"></script>
-<script src="bower_components/superagent/superagent.js"></script>
-<script src="bower_components/requirejs/require.js" data-main="app/main"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Демо же</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="build.css">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="main-panel">
+            <div id="application">
+                <div class="content">
+                    <div id="landing-text">
+                        Текст Landing Page
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="bower_components/q/q.js"></script>
+        <script src="bower_components/react/react-with-addons.js"></script>
+        <script src="bower_components/JSnoX/index.js"></script>
+        <script>
+        /*global jsnox*/
+        window.h = jsnox(React);
+        window.cx = React.addons.classSet;
+        </script>
+        <script src="bower_components/react-router/dist/react-router.js"></script>
+        <script src="bower_components/reflux/dist/reflux.js"></script>
+        <script src="bower_components/superagent/superagent.js"></script>
+        <script src="bower_components/requirejs/require.js" data-main="app/main"></script>
+    </body>
 </html>

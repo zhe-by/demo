@@ -1,7 +1,9 @@
 define(function (require) {
     'use strict';
 
+    var Unauth = require('components/unauth/App');
+
     React.render(
-        h('div', null, 'Reacted!'),
+        h(Unauth),
         document.getElementById('application'));
 });
