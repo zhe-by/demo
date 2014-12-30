@@ -7,7 +7,8 @@ define(function (require) {
     				h("div", null, 
     					h("form", null, 
     						h("input", {type: "email"}), 
-    						h("input", {type: "password"})
+    						h("input", {type: "password"}),
+    						h("input", {type: "submit"})
     					)
     				)
     			);
