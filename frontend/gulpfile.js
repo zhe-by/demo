@@ -22,9 +22,25 @@ gulp.task('dev', [
     'dev:css'
 ]);
 
-gulp.task('dev:watch', ['dev'], function () {
-    livereload.listen();
-    gulp.watch('static/styles/**', ['dev:css']);
+gulp.task('landing:css', function () {
+    return gulp.src('static/landing/main.styl')
+        .pipe(stylus({
+            errors: true,
+            use: [nib()]
+        }))
+        .pipe(rename('build.css'))
+        .pipe(gulp.dest('static/landing'))
+        .pipe(livereload());
 });
 
-gulp.task('default', ['dev:watch']);
+gulp.task('landing', [
+    'landing:css'
+]);
+
+gulp.task('watch', ['dev', 'landing'], function () {
+    livereload.listen();
+    gulp.watch('static/styles/**', ['dev:css']);
+    gulp.watch('static/landing/**.styl', ['landing:css']);
+});
+
+gulp.task('default', ['watch']);

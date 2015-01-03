@@ -1,10 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Же</title>
-</head>
-<body>
-
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Же</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="landing/main.css">
+    </head>
+    <body>
+        <div class="page page-first">
+            <div class="title">Же</div>
+            <form class="form-session" method="POST" action="/api/session">
+                <div class="session-title">
+                    <span class="title-login">Вход</span>
+                    <span class="title-register hidden">Регистрация</span>
+                </div>
+                <div id="email-input-group" class="input-group">
+                    <input type="email" name="email" placeholder="E-mail">
+                    <div class="email-loader"></div>
+                    <div class="validation email-exist hidden">Есть такой юзер</div>
+                    <div class="validation email-free hidden">Нет такого юзера</div>
+                </div>
+                <div id="password-input-group" class="input-group hidden">
+                    <input type="password" name="password" placeholder="Пароль">
+                    <div class="email-forget hidden"></div>
+                </div>
+                <div id="password-retype-input-group" name="passwordRetype" class="input-group hidden">
+                    <input type="password" placeholder="Пароль еще раз">
+                    <div class="validation password-different hidden">Пароли не совпадают</div>
+                </div>
+                <button id="submit-button" type="submit" class="hidden">Войти</button>
+            </form>
+        </div>
+        <script src="landing/main.js"></script>
+    </body>
 </html>
