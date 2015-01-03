@@ -10,26 +10,32 @@
     <body>
         <div class="page page-first">
             <div class="title">Же</div>
-            <form class="form-session" method="POST" action="/api/session">
-                <div class="session-title">
-                    <span class="title-login">Вход</span>
-                    <span class="title-register hidden">Регистрация</span>
-                </div>
-                <div id="email-input-group" class="input-group">
-                    <input type="email" name="email" placeholder="E-mail">
-                    <div class="email-loader"></div>
-                    <div class="validation email-exist hidden">Есть такой юзер</div>
-                    <div class="validation email-free hidden">Нет такого юзера</div>
-                </div>
-                <div id="password-input-group" class="input-group hidden">
-                    <input type="password" name="password" placeholder="Пароль">
-                    <div class="email-forget hidden"></div>
-                </div>
-                <div id="password-retype-input-group" name="passwordRetype" class="input-group hidden">
-                    <input type="password" placeholder="Пароль еще раз">
-                    <div class="validation password-different hidden">Пароли не совпадают</div>
-                </div>
-                <button id="submit-button" type="submit" class="hidden">Войти</button>
+            <form id="form-login" method="POST" action="/api/session">
+                <div>Вход</div>
+                <input type="email" name="email" placeholder="E-mail">
+                <input type="password" name="password" placeholder="Пароль">
+                <a href="javascript:void(0)" class="tab-switch-reset">Забыл пароль</a>
+                <button id="submit-login" type="submit">Войти</button>
+                <a href="javascript:void(0)" class="tab-switch-register">Зарегестрироваться</a>
+            </form>
+            <form id="form-register" method="POST" action="/api/users" class="hidden">
+                <div>Регистрация</div>
+                <input type="email" name="email" placeholder="E-mail">
+                <div id="email-is-loading" class="hidden"></div>
+                <div id="email-is-exist" class="hidden">Email занят</div>
+                <div id="email-is-free" class="hidden"></div>
+                <input type="password" name="password" placeholder="Пароль">
+                <input type="password" name="passwordRetype" placeholder="Пароль еще раз">
+                <div id="password-is-different" class="hidden">Пароли не совпадают</div>
+                <button id="submit-register" type="submit" class="hidden">Зарегестрироваться</button>
+                <a href="javascript:void(0)" class="tab-switch-login">Уже есть аккаунт</a>
+            </form>
+            <form id="form-reset" method="POST" action="/api/session/password/reset" class="hidden">
+                <div>Сброс пароля</div>
+                <input type="email" name="email" placeholder="E-mail">
+                <button id="submit-reset">Сбросить</button>
+                <div class="hidden">Перейдите в свой почтовый ящик</div>
+                <a href="javascript:void(0)" class="tab-switch-login">Вход</a>
             </form>
         </div>
         <script src="landing/main.js"></script>
