@@ -10,5 +10,6 @@
         "h": true,
         "cx": true
     },
-    "browser": true
+    "browser": true,
+    "strict": true
 }

@@ -1,26 +1,32 @@
 {
-  "name": "server-zhe",
-  "description": "Server side for zhe.by project",
+  "name": "demo-zhe",
+  "description": "zhe.by project",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/zhe-by/demo.git"
   },
-  "main": "app.js",
+  "main": "gulpfile.js",
   "dependencies": {
     "async": "^0.9.0",
     "body-parser": "^1.10.0",
+    "bower": "^1.3.12",
     "compression": "^1.3.0",
     "config": "^1.9.0",
     "cookie-parser": "^1.3.3",
     "cookie-session": "^1.1.0",
     "express": "^4.10.6",
+    "gulp": "^3.8.10",
+    "gulp-livereload": "^3.0.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-stylus": "^1.3.4",
     "lodash": "^2.4.1",
     "mongoose": "^3.8.21",
+    "nib": "^1.0.4",
     "nodemailer": "^1.3.0",
+    "nodemon": "^1.2.1",
     "passport": "^0.2.1",
     "passport-facebook": "^1.0.3",
     "passport-google-oauth": "^0.1.5",
