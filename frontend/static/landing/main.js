@@ -73,16 +73,17 @@
 
 
     var ajaxCheckEmail = debounce(function (email) {
-        var oReq = new XMLHttpRequest();
-        oReq.onload = function () {
+        var req = new XMLHttpRequest();
+        req.onload = function () {
             if (this.status === 404) {
                 setStatus('free');
             } else if (this.status === 409) {
                 setStatus('exist');
             }
         };
-        oReq.open('GET', '/api/auth/email/' + email + '/exist', true);
-        oReq.send();
+        req.open('GET', '/api/auth/email/exist?email=' +
+            encodeURIComponent(email), true);
+        req.send();
     });
 
     document.getElementById('email-register')
