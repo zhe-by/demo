@@ -75,7 +75,7 @@
     var ajaxCheckEmail = debounce(function (email) {
         var req = new XMLHttpRequest();
         req.onload = function () {
-            if (this.status === 404) {
+            if (this.status === 204) {
                 setStatus('free');
             } else if (this.status === 409) {
                 setStatus('exist');
