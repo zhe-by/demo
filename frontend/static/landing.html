@@ -8,6 +8,9 @@
         <link rel="stylesheet" href="landing/main.css">
     </head>
     <body>
+        <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
         <div class="page page-first">
             <div class="title">Же</div>
             <form id="form-login" method="POST" action="/api/session">
@@ -20,21 +23,21 @@
             </form>
             <form id="form-register" method="POST" action="/api/users" class="hidden">
                 <div>Регистрация</div>
-                <input type="email" name="email" placeholder="E-mail">
+                <input id="email-register" type="email" name="email" placeholder="E-mail">
                 <div id="email-is-loading" class="hidden"></div>
                 <div id="email-is-exist" class="hidden">Email занят</div>
                 <div id="email-is-free" class="hidden"></div>
-                <input type="password" name="password" placeholder="Пароль">
-                <input type="password" name="passwordRetype" placeholder="Пароль еще раз">
+                <input id="password" type="password" name="password" placeholder="Пароль">
+                <input id="password-retype" type="password" name="passwordRetype" placeholder="Пароль еще раз">
                 <div id="password-is-different" class="hidden">Пароли не совпадают</div>
                 <button id="submit-register" type="submit" class="hidden">Зарегестрироваться</button>
                 <a href="javascript:void(0)" class="tab-switch-login">Уже есть аккаунт</a>
             </form>
-            <form id="form-reset" method="POST" action="/api/session/password/reset" class="hidden">
+            <form id="form-reset" method="POST" action="/api/auth/password/reset" class="hidden">
                 <div>Сброс пароля</div>
                 <input type="email" name="email" placeholder="E-mail">
                 <button id="submit-reset">Сбросить</button>
-                <div class="hidden">Перейдите в свой почтовый ящик</div>
+                <div>Ссылка для сброса будет отправлена на указанный email</div>
                 <a href="javascript:void(0)" class="tab-switch-login">Вход</a>
             </form>
         </div>
