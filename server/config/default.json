@@ -1,3 +1,15 @@
 {
-    "port": 8765
+    "host": "zhe.by",
+    "port": 8765,
+    "secret": "test",
+    "auth": {
+        "facebook": {
+            "id": "test",
+            "secret": "test"
+        },
+        "google": {
+            "id": "test",
+            "secret": "test"
+        }
+    }
 }
