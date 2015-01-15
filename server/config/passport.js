@@ -25,7 +25,7 @@ module.exports = function (app) {
                         User.create({
                                 firstName: firstName,
                                 lastName: lastName,
-                                _id: email
+                                email: email
                             })
                             .exec(done);
                     } else {
@@ -62,7 +62,9 @@ module.exports = function (app) {
             passwordField: 'password'
         },
         function (email, password, done) {
-            User.findById(email, '+password')
+            User.findOne({
+                    email: email
+                }, '+password')
                 .exec(function (err, user) {
                     if (err) {
                         return done(err);

@@ -66,7 +66,8 @@ module.exports = router
         passport.authenticate('local', {}),
         function (req, res, next) {
             res.redirect('/');
-        })
+        }
+    )
     .post('/login', passport.authenticate('local', {}),
         function (req, res, next) {
             res.redirect('/');

@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 module.exports = mongoose.model(
     'User',
     new mongoose.Schema({
-        _id: {
+        email: {
             type: String,
             required: true,
             unique: true

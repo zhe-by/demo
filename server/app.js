@@ -4,6 +4,9 @@ var express = require('express');
 
 var app = express();
 
+var mongoose = require('mongoose');
+mongoose.connect(config.db.mongo);
+
 app.use(require('./config/nocache'));
 
 require('./config/passport')(app);

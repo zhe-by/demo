@@ -18,5 +18,8 @@
     },
     "admin": {
         "email": "admin@zhe.by"
+    },
+    "db": {
+        "mongo": "mongodb://localhost:27017/zhe"
     }
 }
