@@ -1,4 +1,4 @@
-(function () {
+(function() {
     'use strict';
 
     function debounce(func, wait) {
@@ -62,19 +62,19 @@
 
     function setStatus(status) {
         document.getElementById('email-is-loading')
-            .className = status === 'loading' ? '' : 'hidden';
+            .classList[status === 'loading' ? 'remove' : 'add']('hidden');
         document.getElementById('email-is-exist')
-            .className = status === 'exist' ? '' : 'hidden';
+            .classList[status === 'exist' ? 'remove' : 'add']('hidden');
         document.getElementById('email-is-free')
-            .className = status === 'free' ? '' : 'hidden';
+            .classList[status === 'free' ? 'remove' : 'add']('hidden');
         document.getElementById('submit-register')
-            .className = status === 'free' ? '' : 'hidden';
+            .classList[status === 'free' ? 'remove' : 'add']('hidden');
     }
 
 
-    var ajaxCheckEmail = debounce(function (email) {
+    var ajaxCheckEmail = debounce(function(email) {
         var req = new XMLHttpRequest();
-        req.onload = function () {
+        req.onload = function() {
             if (this.status === 204) {
                 setStatus('free');
             } else if (this.status === 409) {
@@ -87,7 +87,7 @@
     });
 
     document.getElementById('email-register')
-        .addEventListener('input', function (e) {
+        .addEventListener('input', function(e) {
             if (e.target.value && e.target.value.indexOf('@') !== -1) {
                 setStatus('loading');
                 ajaxCheckEmail(e.target.value);
@@ -96,14 +96,14 @@
             }
         });
     document.getElementById('password-retype')
-        .addEventListener('input', function (e) {
+        .addEventListener('input', function(e) {
             var password = document.getElementById('password').value;
             document.getElementById('password-is-different')
                 .className = (e.target.value && e.target.value !== password) ?
                 '' : 'hidden';
         });
     document.getElementById('form-register')
-        .addEventListener('submit', function (e) {
+        .addEventListener('submit', function(e) {
             var password = document.getElementById('password').value;
             var passwordRetype = document
                 .getElementById('password-retype').value;

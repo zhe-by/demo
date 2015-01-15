@@ -1,46 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Же</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="stylesheet" href="landing/main.css">
-    </head>
-    <body>
-        <!--[if lt IE 8]>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Же</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="landing/main.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div class="page page-first">
-            <div class="title">Же</div>
+    <div class="container">
+        <div class="col-md-offset-4 col-md-4">
+            <div class="page-header">Же</div>
             <form id="form-login" method="POST" action="/api/auth/login">
-                <div>Вход</div>
-                <input type="email" name="email" placeholder="E-mail">
-                <input type="password" name="password" placeholder="Пароль">
-                <a href="javascript:void(0)" class="tab-switch-reset">Забыл пароль</a>
-                <button id="submit-login" type="submit">Войти</button>
-                <a href="javascript:void(0)" class="tab-switch-register">Зарегестрироваться</a>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Пароль">
+                    <a href="javascript:void(0)" class="tab-switch-reset"><small>Забыл пароль</small></a>
+                </div>
+                <button id="submit-login" type="submit" class="btn btn-primary btn-lg btn-block">Войти</button>
+                <a href="javascript:void(0)" class="tab-switch-register btn btn-default btn-lg btn-block">Зарегистрироваться</a>
             </form>
             <form id="form-register" method="POST" action="/api/auth/register" class="hidden">
-                <div>Регистрация</div>
-                <input id="email-register" type="email" name="email" placeholder="E-mail">
+                <div class="form-group">
+                    <input class="form-control" id="email-register" type="email" name="email" placeholder="E-mail">
+                </div>
                 <div id="email-is-loading" class="hidden"></div>
                 <div id="email-is-exist" class="hidden">Email занят</div>
                 <div id="email-is-free" class="hidden"></div>
-                <input id="password" type="password" name="password" placeholder="Пароль">
-                <input id="password-retype" type="password" name="passwordRetype" placeholder="Пароль еще раз">
+                <div class="form-group">
+                    <input class="form-control" id="password" type="password" name="password" placeholder="Пароль">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="password-retype" type="password" name="passwordRetype" placeholder="Пароль еще раз">
+                </div>
                 <div id="password-is-different" class="hidden">Пароли не совпадают</div>
-                <button id="submit-register" type="submit" class="hidden">Зарегестрироваться</button>
+                <button id="submit-register" class="btn btn-primary btn-lg btn-block hidden" type="submit">Зарегистрироваться</button>
                 <a href="javascript:void(0)" class="tab-switch-login">Уже есть аккаунт</a>
             </form>
             <form id="form-reset" method="POST" action="/api/auth/password/reset" class="hidden">
-                <div>Сброс пароля</div>
-                <input type="email" name="email" placeholder="E-mail">
-                <button id="submit-reset">Сбросить</button>
-                <div>Ссылка для сброса будет отправлена на указанный email</div>
-                <a href="javascript:void(0)" class="tab-switch-login">Вход</a>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="email" placeholder="E-mail">
+                    <small><sup>*</sup>Ссылка для сброса будет отправлена на указанный email</small>
+                </div>
+                <button id="submit-reset" class="btn btn-primary btn-lg btn-block">Сбросить</button>
+                <a href="javascript:void(0)" class="tab-switch-login btn btn-default btn-lg btn-block">Вход</a>
             </form>
         </div>
-        <script src="landing/main.js"></script>
-    </body>
+    </div>
+    <script src="landing/main.js"></script>
+</body>
+
 </html>
