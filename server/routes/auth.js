@@ -43,7 +43,9 @@ module.exports = router
     .use('/oauth', oauthRouter)
     .use('/oauth/callbacks', callbacksRouter)
     .get('/email/exist', function (req, res, next) {
-        User.findById(req.query.email, function (err, result) {
+        User.findOne({
+            email: req.query.email
+        }, function (err, result) {
             if (err) {
                 return next(err);
             }
