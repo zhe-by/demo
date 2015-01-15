@@ -24,6 +24,9 @@ app.get('/', function (req, res, next) {
 app.use(express.static(path.join(__dirname, '../frontend/static')));
 
 require('fs').readdirSync('routes').forEach(function (fileName) {
+    if (fileName.indexOf('.js') === -1) {
+        return;
+    }
     var routeName = fileName.substr(0, fileName.indexOf('.js'));
     app.use('/api/' + routeName, require('./routes/' + routeName));
 });

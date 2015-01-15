@@ -10,6 +10,13 @@
         "google": {
             "id": "test",
             "secret": "test"
+        },
+        "vk": {
+            "id": "test",
+            "secret": "test"
         }
+    },
+    "admin": {
+        "email": "admin@zhe.by"
     }
 }

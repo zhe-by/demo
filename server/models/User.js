@@ -13,7 +13,9 @@ module.exports = mongoose.model(
         password: {
             type: String,
             select: false
-        }
+        },
+        firstName: String,
+        lastName: String
     })
     .pre('save', function (next) {
         var hash = crypto.createHash('md5')

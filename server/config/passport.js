@@ -3,6 +3,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var VKontakteStrategy = require('passport-vkontakte').Strategy;
 var config = require('config');
 
 var Auth = require('../models/Auth');
@@ -85,7 +86,7 @@ module.exports = function (app) {
             clientID: config.auth.facebook.id,
             clientSecret: config.auth.facebook.secret,
             callbackURL: 'http://' + config.host +
-                '/api/session/callbacks/facebook'
+                '/api/auth/oauth/callbacks/facebook'
         },
         function (accessToken, refreshToken, profile, done) {
             var id = profile.id;
@@ -100,7 +101,7 @@ module.exports = function (app) {
             clientID: config.auth.google.id,
             clientSecret: config.auth.google.secret,
             callbackURL: 'http://' + config.host +
-                '/api/session/callbacks/google'
+                '/api/auth/oauth/callbacks/google'
         },
         function (accessToken, refreshToken, profile, done) {
             var id = profile.id;
@@ -112,6 +113,22 @@ module.exports = function (app) {
         }
     ));
 
+    passport.use(new VKontakteStrategy({
+            clientID: config.auth.vk.id, // VK.com docs call it 'API ID'
+            clientSecret: config.auth.vk.secret,
+            callbackURL: 'http://' + config.host +
+                '/api/auth/oauth/callbacks/vkontakte'
+        },
+        function (accessToken, refreshToken, profile, done) {
+            /*jshint camelcase:false*/
+            handle('vkontakte',
+                profile.id,
+                profile._json.first_name,
+                profile._json.last_name,
+                profile._json.email,
+                done);
+        }
+    ));
     passport.serializeUser(function (user, done) {
         done(null, user._id);
     });

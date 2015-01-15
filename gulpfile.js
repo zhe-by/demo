@@ -19,7 +19,7 @@ gulp.task('frontend:static:bower', function (next) {
         });
 });
 
-gulp.task('frontend:static:css:quick', function () {
+function frontendStaticCss() {
     return gulp.src('frontend/static/styles/main.styl')
         .pipe(stylus({
             errors: true,
@@ -28,16 +28,30 @@ gulp.task('frontend:static:css:quick', function () {
         .pipe(rename('build.css'))
         .pipe(gulp.dest('frontend/static'))
         .pipe(livereload());
-});
+}
+gulp.task('frontend:static:css:quick', frontendStaticCss);
 
 gulp.task('frontend:static:css', [
-    'frontend:static:bower',
-    'frontend:static:css:quick'
-]);
+    'frontend:static:bower'
+], frontendStaticCss);
 
 gulp.task('frontend:static', [
     'frontend:static:css',
     'frontend:static:bower'
+]);
+
+gulp.task('frontend:landing:css', function () {
+    return gulp.src('frontend/static/landing/main.styl')
+        .pipe(stylus({
+            errors: true,
+            use: [nib()]
+        }))
+        .pipe(gulp.dest('frontend/static/landing'))
+        .pipe(livereload());
+});
+
+gulp.task('frontend:landing', [
+    'frontend:landing:css'
 ]);
 
 gulp.task('server:run', function () {
@@ -54,10 +68,20 @@ gulp.task('server:run', function () {
     });
 });
 
-gulp.task('watch', ['frontend:static', 'server:run'], function () {
+gulp.task('watch', [
+    'frontend:static',
+    'frontend:landing',
+    'server:run'
+], function () {
     livereload.listen();
     gulp.watch('frontend/static/styles/**', ['frontend:static:css:quick']);
     gulp.watch('frontend/static/bower.json', ['frontend:static:bower']);
+    gulp.watch('frontend/static/landing/main.styl', ['frontend:landing:css']);
+    gulp.watch(['frontend/static/**.html'])
+            .on('change', function (file) {
+                console.log(file.path, 'changed');
+                livereload.changed(file.path);
+            });
 });
 
 gulp.task('default', ['watch']);

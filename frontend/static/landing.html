@@ -13,7 +13,7 @@
         <![endif]-->
         <div class="page page-first">
             <div class="title">Же</div>
-            <form id="form-login" method="POST" action="/api/session">
+            <form id="form-login" method="POST" action="/api/auth/login">
                 <div>Вход</div>
                 <input type="email" name="email" placeholder="E-mail">
                 <input type="password" name="password" placeholder="Пароль">
@@ -21,7 +21,7 @@
                 <button id="submit-login" type="submit">Войти</button>
                 <a href="javascript:void(0)" class="tab-switch-register">Зарегестрироваться</a>
             </form>
-            <form id="form-register" method="POST" action="/api/users" class="hidden">
+            <form id="form-register" method="POST" action="/api/auth/register" class="hidden">
                 <div>Регистрация</div>
                 <input id="email-register" type="email" name="email" placeholder="E-mail">
                 <div id="email-is-loading" class="hidden"></div>
