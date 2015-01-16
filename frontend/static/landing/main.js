@@ -61,14 +61,14 @@
     );
 
     function setStatus(status) {
-        document.getElementById('email-is-loading')
-            .classList[status === 'loading' ? 'remove' : 'add']('hidden');
         document.getElementById('email-is-exist')
             .classList[status === 'exist' ? 'remove' : 'add']('hidden');
         document.getElementById('email-is-free')
             .classList[status === 'free' ? 'remove' : 'add']('hidden');
         document.getElementById('submit-register')
             .classList[status === 'free' ? 'remove' : 'add']('hidden');
+        document.getElementById('email-register').parentNode
+            .classList[status === 'exist' ? 'add' : 'remove']('has-error');
     }
 
 
@@ -89,7 +89,6 @@
     document.getElementById('email-register')
         .addEventListener('input', function(e) {
             if (e.target.value && e.target.value.indexOf('@') !== -1) {
-                setStatus('loading');
                 ajaxCheckEmail(e.target.value);
             } else {
                 setStatus('empty');
@@ -101,6 +100,9 @@
             document.getElementById('password-is-different')
                 .className = (e.target.value && e.target.value !== password) ?
                 '' : 'hidden';
+            document.getElementById('password-is-different').parentNode
+                .classList[e.target.value && e.target.value !== password ?
+                    'add' : 'remove']('has-error');
         });
     document.getElementById('form-register')
         .addEventListener('submit', function(e) {
