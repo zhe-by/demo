@@ -17,14 +17,16 @@
         <script src="bower_components/q/q.js"></script>
         <script src="bower_components/react/react-with-addons.js"></script>
         <script src="bower_components/JSnoX/index.js"></script>
-        <script>
-        /*global jsnox*/
-        window.h = jsnox(React);
-        window.cx = React.addons.classSet;
-        </script>
         <script src="bower_components/react-router/dist/react-router.js"></script>
         <script src="bower_components/reflux/dist/reflux.js"></script>
         <script src="bower_components/superagent/superagent.js"></script>
+        <script src="bower_components/lodash/dist/lodash.js"></script>
+        <script>
+        /*global jsnox,superagent*/
+        window.h = jsnox(React);
+        window.cx = React.addons.classSet;
+        window.ajax = superagent;
+        </script>
         <script src="bower_components/requirejs/require.js" data-main="app/main"></script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 define(function (require) {
     'use strict';
-
+    var RootApp = require('components/RootApp');
     React.render(
-        h('div', 'Reacted!'),
+        h(RootApp),
         document.getElementById('application'));
 });
