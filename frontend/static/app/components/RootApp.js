@@ -12,6 +12,7 @@ define(function (require) {
             Reflux.connect(session.status, 'sessionStatus')
         ],
         render: function () {
+            return h(Student);
             if (!this.state) {
                 return null;
             }
