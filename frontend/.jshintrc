@@ -6,7 +6,7 @@
         "Q": true,
         "ReactRouter": true,
         "Reflux": true,
-        "superagent": true,
+        "ajax": true,
         "h": true,
         "cx": true
     },
